@@ -19,7 +19,8 @@ const AppBar = ({ className }: Props) => {
 		>
 			<AiFillHome size={50} className="scale-75 cursor-pointer md:scale-100 " />
 
-			<div className="flex min-w-min flex-row justify-between  gap-3 sm:text-xs  md:text-2xl">
+			<IoMdMenu size={30} className="md:hidden peer"/>
+			<div className="hidden min-w-min md:flex peer-hover:flex flex-row justify-between  gap-3 sm:text-xs  md:text-2xl">
 				
 					<ul className="hidden flex-row gap-3 md:flex  md:gap-16 " id="navbar-default">
 						{options.map((element) => (
@@ -34,9 +35,6 @@ const AppBar = ({ className }: Props) => {
 						))}
 					</ul>
 			
-				
-
-       
 			</div>
 		</div>
 	);
