@@ -6,7 +6,7 @@ import AppBar from '../components/appBar';
 // @ts-ignore
 import { Icon } from 'astro-icon';
 
-const hoverBorderStyle = 'outline outline-white hover:outline rounded-sm p-1';
+const hoverBorderStyle = 'outline outline-white hover:outline rounded-sm outline-offset-2';
 const thinTextStyle = 'text-white text-sm inline-block font-thin';
 const thickTextStyle = 'text-white text-sm font-bold inline-block';
 ---
@@ -15,9 +15,9 @@ const thickTextStyle = 'text-white text-sm font-bold inline-block';
 	<main class="bg-[#e3e6e6] min-h-[1000px]">
 		<!-- Appbar -->
 		<div
-			class="bg-[#131921] w-screen h-16 flex flex-row items-center gap-2 justify-center p-auto object-cover"
+			class="bg-[#131921] w-screen h-16 flex flex-row items-center gap-2 justify-center p-auto object-cover px-2"
 		>
-		<!-- lOGO -->
+			<!-- lOGO -->
 			<div class={'w-32 h-10 object-fit' + hoverBorderStyle}>
 				<img
 					class="translate-y-[-30%]"
@@ -32,7 +32,19 @@ const thickTextStyle = 'text-white text-sm font-bold inline-block';
 
 			<!-- searchBox -->
 
-			<div class="flex-grow bg-white h-8 rounded"></div>
+			<div class="flex-grow bg-white h-11 rounded mx-2 flex-row flex outline-[#ff9900] outline-4 peer-focus:outline">
+				<div
+					class="bg-gray-200 flex flex-row items-center h-full w-fit rounded rounded-r-none pl-2 border border-r-gray-300"
+				>
+					<p class="text-sm text-gray-700">Alle</p>
+					<Icon name="mdi:menu-down" class="w-5 text-gray-800" />
+				</div>
+				<input type="text" class="h-full flex-grow bg-emerald-200 outline-none pl-2 peer" placeholder="Search for items" />
+				<div class="bg-[#febd68] h-full w-fit rounded rounded-l-none place-content-center grid px-2">
+					<Icon name="mdi:magnify" class="w-9" />
+				</div>
+			</div>
+
 			<!-- country box -->
 			<div class={'w-fit flex flex-row items-center' + hoverBorderStyle}>
 				<img
@@ -59,9 +71,12 @@ const thickTextStyle = 'text-white text-sm font-bold inline-block';
 			</div>
 
 			<!-- shopping cart -->
-			<div class={'w-40 flex flex-row items-end' + hoverBorderStyle}>
+			<div
+				class={'w-40 flex flex-row items-end justify-center' +
+					hoverBorderStyle}
+			>
 				<Icon name="mdi:cart-outline" class="text-white w-10" />
-				<p class={thickTextStyle + 'mb-1'}>Shopping Cart</p>
+				<p class={thickTextStyle + 'mb-3'}>Shopping Cart</p>
 			</div>
 		</div>
 	</main>
