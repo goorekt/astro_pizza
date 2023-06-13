@@ -3,17 +3,66 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/button';
 import AppBar from '../components/appBar';
+// @ts-ignore
+import { Icon } from 'astro-icon';
+
+const hoverBorderStyle = 'outline outline-white hover:outline rounded-sm p-1';
+const thinTextStyle = 'text-white text-sm inline-block font-thin';
+const thickTextStyle = 'text-white text-sm font-bold inline-block';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="bg-slate-100 min-h-[10000px] ">
-		<AppBar className='' />
+	<main class="bg-[#e3e6e6] min-h-[1000px]">
+		<!-- Appbar -->
+		<div
+			class="bg-[#131921] w-screen h-16 flex flex-row items-center gap-2 justify-center p-auto object-cover"
+		>
+		<!-- lOGO -->
+			<div class={'w-32 h-10 object-fit' + hoverBorderStyle}>
+				<img
+					class="translate-y-[-30%]"
+					src="https://www.pentalic.com/wp-content/uploads/2018/12/Amazon-logo-white-small.png"
+				/>
+			</div>
+			<!-- delivery text -->
+			<div class={'flex flex-col flex-nowrap' + hoverBorderStyle}>
+				<p class={thinTextStyle}>Delivery to</p>
+				<p class={thickTextStyle}>Denmark</p>
+			</div>
 
+			<!-- searchBox -->
 
-		<div class="asp sticky top-0 left-0 -translate-x-1/2 w-1/3 translate-y-1/3  ">
-		<img src="https://www.cicis.com/content/images/cicis/Jalapeno%20pizza.png"  class="animate-spin-slow" />
-	</div>
+			<div class="flex-grow bg-white h-8 rounded"></div>
+			<!-- country box -->
+			<div class={'w-fit flex flex-row items-center' + hoverBorderStyle}>
+				<img
+					class="w-6 mr-2"
+					src="https://www.iconarchive.com/download/i109119/wikipedia/flags/DK-Denmark-Flag.1024.png"
+				/>
+				<p class="font-bold text-md text-white">DK</p>
+				<Icon
+					name="mdi:menu-down"
+					class="text-white w-5 self-end justify-center"
+					client:load
+				/>
+			</div>
+			<!-- anmelding -->
+			<div class={'w-fit flex flex-row items-center' + hoverBorderStyle}>
+				<div class="flex flex-col">
+					<p class={thinTextStyle}>View your</p>
+					<p class={thickTextStyle}>Account</p>
+				</div>
+				<Icon
+					name="mdi:menu-down"
+					class="text-white w-5 self-end justify-center inline-block"
+				/>
+			</div>
+
+			<!-- shopping cart -->
+			<div class={'w-40 flex flex-row items-end' + hoverBorderStyle}>
+				<Icon name="mdi:cart-outline" class="text-white w-10" />
+				<p class={thickTextStyle + 'mb-1'}>Shopping Cart</p>
+			</div>
+		</div>
 	</main>
 </Layout>
-
-
